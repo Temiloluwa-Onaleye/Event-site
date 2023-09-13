@@ -1,9 +1,9 @@
 import React from "react";
 
-import Speakers from "../src/components/Speakers";
+import App from "../src/components/App";
 
 const Index = () => {
-  return <Speakers />;
+  return <App />;
 };
 
 export default Index;
