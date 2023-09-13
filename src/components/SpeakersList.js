@@ -1,12 +1,14 @@
 import Speaker from "./Speaker";
 
-import useRequestSpeakers from "../hooks/useRequestSpeakers";
+import useRequestSpeakers, {
+  REQUEST_STATUS,
+} from "../hooks/useRequestSpeakers";
 
 const SpeakersList = ({ showSessions }) => {
-  const { speakerData, isLoading, hasErrored, error, onFavoriteToggle } =
+  const { speakerData, requestStatus, error, onFavoriteToggle } =
     useRequestSpeakers(2000);
 
-  if (hasErrored === true) {
+  if (requestStatus === REQUEST_STATUS.FAILURE) {
     return (
       <div className="text-danger">
         ERROR:<b>loading Speaker Data Failed{error}</b>
@@ -15,7 +17,7 @@ const SpeakersList = ({ showSessions }) => {
   }
   return (
     <>
-      {isLoading ? (
+      {requestStatus === REQUEST_STATUS.LOADING ? (
         <h1>Loading...</h1>
       ) : (
         <div>
