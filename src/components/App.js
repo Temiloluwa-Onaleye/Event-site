@@ -1,8 +1,7 @@
 import React from "react";
-import { data } from "../../SpeakerData";
-import SpeakersList from "./SpeakersList";
+
 import Header from "./Header";
-import SpeakersToolbar from "./SpeakersToolbar";
+
 import { useState } from "react";
 import Speakers from "./Speakers";
 
@@ -15,7 +14,7 @@ const App = () => {
       }
     >
       <Header theme={theme} />
-      <Speakers theme={theme} setTheme={setTheme} data={data} />
+      <Speakers theme={theme} setTheme={setTheme} />
     </div>
   );
 };
