@@ -11,6 +11,23 @@ const useRequestDelay = (delayTime = 1000, initialData = []) => {
   const [requestStatus, setRequestStatus] = useState(REQUEST_STATUS.LOADING);
   const [error, setError] = useState("");
 
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  useEffect(() => {
+    async function delayFunc() {
+      try {
+        await delay(delayTime);
+        setRequestStatus(REQUEST_STATUS.SUCCESS);
+        setData(initialData);
+      } catch (e) {
+        setRequestStatus(REQUEST_STATUS.FAILURE);
+        setError(e);
+      }
+    }
+
+    delayFunc();
+  }, []);
+
   function updateRecord(recordUpdated) {
     const newRecords = data.map((rec) => {
       return rec.id === recordUpdated.id ? recordUpdated : rec;
@@ -27,22 +44,6 @@ const useRequestDelay = (delayTime = 1000, initialData = []) => {
     delayFunction();
   }
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-  useEffect(() => {
-    async function delayFunc() {
-      try {
-        await delay(delayTime);
-        setRequestStatus(REQUEST_STATUS.SUCCESS);
-        setData(data);
-      } catch (e) {
-        setRequestStatus(REQUEST_STATUS.FAILURE);
-        setError(e);
-      }
-    }
-
-    delayFunc();
-  }, []);
   return { data, requestStatus, error, updateRecord };
 };
 
