@@ -1,12 +1,14 @@
 import Speaker from "./Speaker";
 
-import useRequestSpeakers, {
-  REQUEST_STATUS,
-} from "../hooks/useRequestSpeakers";
+import useRequestDelay, { REQUEST_STATUS } from "../hooks/useRequestDelay";
 
 const SpeakersList = ({ showSessions }) => {
-  const { speakerData, requestStatus, error, onFavoriteToggle } =
-    useRequestSpeakers(1500);
+  const {
+    data: speakerData,
+    requestStatus,
+    error,
+    updateRecord,
+  } = useRequestDelay(2000);
 
   if (requestStatus === REQUEST_STATUS.FAILURE) {
     return (
@@ -30,7 +32,7 @@ const SpeakersList = ({ showSessions }) => {
                     speaker={speaker}
                     showSessions={showSessions}
                     onFavoriteToggle={() => {
-                      onFavoriteToggle(speaker.id);
+                      updateRecord(speaker.id);
                     }}
                   />
                 );
