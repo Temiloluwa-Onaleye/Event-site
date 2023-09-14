@@ -1,7 +1,9 @@
 import React from "react";
 
+import App from "../src/components/App";
+
 const Index = () => {
-  return <div>This is my Conference site</div>;
+  return <App />;
 };
 
 export default Index;
