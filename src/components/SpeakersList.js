@@ -6,7 +6,7 @@ import useRequestSpeakers, {
 
 const SpeakersList = ({ showSessions }) => {
   const { speakerData, requestStatus, error, onFavoriteToggle } =
-    useRequestSpeakers(2000);
+    useRequestSpeakers(1500);
 
   if (requestStatus === REQUEST_STATUS.FAILURE) {
     return (
