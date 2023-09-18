@@ -15,9 +15,7 @@ const LayoutNoThemeProvider = ({ startingTheme, children }) => {
   return (
     <div
       className={
-        theme === startingTheme
-          ? "container-fluid light"
-          : "container-fluid dark"
+        theme === "light" ? "container-fluid light" : "container-fluid dark"
       }
     >
       {children}
