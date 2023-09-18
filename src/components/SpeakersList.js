@@ -2,8 +2,11 @@ import Speaker from "./Speaker";
 import { data } from "../../SpeakerData";
 
 import useRequestDelay, { REQUEST_STATUS } from "../hooks/useRequestDelay";
+import { useContext } from "react";
+import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext.";
 
-const SpeakersList = ({ showSessions }) => {
+const SpeakersList = () => {
+  const { showSessions } = useContext(SpeakerFilterContext);
   const {
     data: speakerData,
     requestStatus,
@@ -31,7 +34,6 @@ const SpeakersList = ({ showSessions }) => {
                   <Speaker
                     key={speaker.id}
                     speaker={speaker}
-                    showSessions={showSessions}
                     onFavoriteToggle={(doneCallback) => {
                       updateRecord(
                         {
