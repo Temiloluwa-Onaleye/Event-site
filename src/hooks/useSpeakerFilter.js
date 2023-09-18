@@ -26,6 +26,8 @@ const useSpeakerFilter = (startingShowSessions, startingEventYear) => {
     eventYear,
     setEventYear,
     EVENT_YEARS,
+    searchQuery,
+    setSearchQuery,
   };
 };
 

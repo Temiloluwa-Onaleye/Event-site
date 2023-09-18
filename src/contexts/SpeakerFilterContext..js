@@ -16,7 +16,7 @@ const SpeakerFilterProvider = ({
     searchQuery,
     setSearchQuery,
     EVENT_YEARS,
-  } = useSpeakerFilter(startingShowSessions);
+  } = useSpeakerFilter(startingShowSessions, startingEventYear);
   return (
     <SpeakerFilterContext.Provider
       value={{
