@@ -13,7 +13,7 @@ const SpeakersList = () => {
     error,
     updateRecord,
     deleteRecord,
-    insertRecor,
+    insertRecord,
   } = useRequestDelay(2000, data);
 
   const { searchQuery, eventYear } = useContext(SpeakerFilterContext);
