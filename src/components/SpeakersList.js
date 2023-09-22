@@ -1,6 +1,5 @@
 import Speaker from "./Speaker";
 import { data } from "../../SpeakerData";
-
 import useRequestDelay, { REQUEST_STATUS } from "../hooks/useRequestDelay";
 import { useContext } from "react";
 import { SpeakerFilterContext } from "../contexts/SpeakerFilterContext.";
