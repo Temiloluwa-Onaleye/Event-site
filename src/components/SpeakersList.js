@@ -7,7 +7,7 @@ import SpeakerAdd from "./SpeakerAdd";
 
 const SpeakersList = () => {
   const {
-    data: speakerDat,
+    data: speakerData,
     requestStatus,
     error,
     updateRecord,
