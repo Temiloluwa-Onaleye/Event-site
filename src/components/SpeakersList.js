@@ -11,7 +11,7 @@ const SpeakersList = ({ showSessions }) => {
   if (requestStatus === REQUEST_STATUS.FAILURE) {
     return (
       <div className="text-danger">
-        ERROR:<b>loading Speaker Data Failed{error}</b>
+        ERROR:<b>Loading Speaker Data Failed{error}</b>
       </div>
     );
   }
